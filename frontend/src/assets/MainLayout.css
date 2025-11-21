@@ -1,0 +1,14 @@
+.main-layout .ant-layout-sider {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow: auto;
+  z-index: 1000;
+  background: #fff;
+  border-right: 1px solid #f0f0f0;
+}
+.main-layout .ant-layout-sider .ant-menu {
+  border-inline-end: none !important;
+}

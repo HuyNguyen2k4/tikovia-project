@@ -1,0 +1,107 @@
+/* Modal styling */
+.editInvenLot-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.editInvenLot-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editInvenLot-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.editInvenLot-description {
+  margin-bottom: 16px;
+}
+
+.editInvenLot-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Role option */
+.editInvenLot-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editInvenLot-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.editInvenLot-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.editInvenLot-roleIndicator--blue {
+  background-color: #1890ff;
+}
+
+.editInvenLot-roleIndicator--purple {
+  background-color: #722ed1;
+}
+
+.editInvenLot-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.editInvenLot-roleIndicator--cyan {
+  background-color: #13c2c2;
+}
+
+.editInvenLot-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.editInvenLot-roleIndicator--gold {
+  background-color: #faad14;
+}
+
+.editInvenLot-roleIndicator--magenta {
+  background-color: #eb2f96;
+}
+
+/* Status option */
+.editInvenLot-statusOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editInvenLot-statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Status indicator colors */
+.editInvenLot-statusIndicator--green {
+  background-color: #52c41a;
+}
+
+.editInvenLot-statusIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.editInvenLot-statusIndicator--red {
+  background-color: #ff4d4f;
+}
+
+/* Submit container */
+.editInvenLot-submitContainer {
+  margin-bottom: 0;
+  margin-top: 24px;
+}
+
+.editInvenLot-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}

@@ -1,0 +1,84 @@
+.topHeader {
+  padding: 0 16px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  transition: left 0.2s;
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+.headerSearch {
+  width: calc(100% + 120px);
+  margin-left: 16px;
+  border-radius: 20px;
+}
+.headerSearch :global(.ant-input-prefix) {
+  margin-right: 15px;
+}
+.headerText {
+  display: flex;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.headerBellIcon {
+  font-size: 18px !important;
+}
+
+.header-lang {
+  cursor: pointer;
+}
+
+.header-user-link {
+  cursor: pointer;
+}
+
+.headerUserRole {
+  font-size: 12px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.desktopSearch {
+  display: block;
+}
+.mobileSearchIcon {
+  display: none;
+}
+@media (max-width: 768px) {
+  .headerRight {
+    gap: 10px;
+  }
+  .headerText {
+    display: none;
+  }
+  .desktopSearch {
+    display: none;
+  }
+  .mobileSearchIcon {
+    display: block;
+  }
+}
+:global(.notification-menu .ant-menu-item) {
+  min-height: 55px !important;
+  display: flex;
+  align-items: center;
+}
+.menuButton:focus {
+  outline: none;  
+}

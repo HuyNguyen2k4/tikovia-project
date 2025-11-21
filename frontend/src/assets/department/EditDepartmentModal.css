@@ -1,0 +1,107 @@
+/* Modal styling */
+.editDepart-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.editDepart-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editDepart-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.editDepart-description {
+  margin-bottom: 16px;
+}
+
+.editDepart-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Role option */
+.editDepart-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editDepart-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.editDepart-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.editDepart-roleIndicator--blue {
+  background-color: #1890ff;
+}
+
+.editDepart-roleIndicator--purple {
+  background-color: #722ed1;
+}
+
+.editDepart-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.editDepart-roleIndicator--cyan {
+  background-color: #13c2c2;
+}
+
+.editDepart-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.editDepart-roleIndicator--gold {
+  background-color: #faad14;
+}
+
+.editDepart-roleIndicator--magenta {
+  background-color: #eb2f96;
+}
+
+/* Status option */
+.editDepart-statusOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editDepart-statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Status indicator colors */
+.editDepart-statusIndicator--green {
+  background-color: #52c41a;
+}
+
+.editDepart-statusIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.editDepart-statusIndicator--red {
+  background-color: #ff4d4f;
+}
+
+/* Submit container */
+.editDepart-submitContainer {
+  margin-bottom: 0;
+  margin-top: 24px;
+}
+
+.editDepart-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}

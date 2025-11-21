@@ -1,0 +1,115 @@
+:root {
+  --custom-header-gradient-start: #3f51b5;
+  --custom-header-gradient-end: #2196f3;
+  --chat--color--primary: #007aff;
+  --chat--color--primary-shade-50: #006ce0;
+  --chat--color--primary--shade-100: #005fc7;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #fff;
+  --chat--color-dark: #2c3e50;
+  --chat--spacing: 0.75rem;
+  --chat--border-radius: 12px;
+  --chat--window--width: 380px;
+  --chat--window--height: 620px;
+  --chat--window--box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  --chat--header--padding: 0.8rem 1rem;
+  --chat--header--background: linear-gradient(
+    to right,
+    var(--custom-header-gradient-start),
+    var(--custom-header-gradient-end)
+  );
+  --chat--header--color: var(--chat--color-white);
+  --chat--heading--font-size: 1.15rem;
+  --chat--subtitle--font-size: 0.75rem;
+  --chat--message--font-size: 0.95rem;
+  --chat--message--padding: 0.75rem 1rem;
+  --chat--message--border-radius: 20px;
+  --chat--message--bot--background: #d1d1d9; /* Xám nhạt rõ ràng */
+  --chat--message--bot--color: #222;
+  --chat--message--bot--border-radius: 20px 20px 20px 6px;
+  --chat--message--user--background: var(--chat--color--primary);
+  --chat--message--user--color: var(--chat--color-white);
+  --chat--message--user--border-radius: 20px 20px 6px 20px;
+  --chat--toggle--size: 60px;
+  --chat--toggle--background: var(--chat--color--primary);
+  --chat--toggle--color: var(--chat--color-white);
+}
+/* Nút mở chat */
+.n8n-chat-toggle {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out;
+  background: var(--chat--toggle--background);
+  color: var(--chat--toggle--color);
+}
+.n8n-chat-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* Cửa sổ chat */
+.n8n-chat-window {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: var(--chat--border-radius);
+  overflow: hidden;
+}
+
+/* Header */
+.n8n-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--chat--header--background);
+  color: var(--chat--header--color);
+  padding: var(--chat--header--padding);
+  border-top-left-radius: var(--chat--border-radius);
+  border-top-right-radius: var(--chat--border-radius);
+}
+.n8n-chat-header__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--chat--heading--font-size);
+  font-weight: 600;
+}
+.n8n-chat-header__title::before {
+  content: "🤖";
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-right: 5px;
+}
+.n8n-chat-header__title svg {
+  fill: var(--chat--header--color);
+}
+.n8n-chat-header__close-button {
+  color: var(--chat--header--color);
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.n8n-chat-header__close-button:hover {
+  opacity: 0.8;
+}
+
+/* Nút bấm trong chat */
+
+.n8n-chat-button-group button:hover {
+  background-color: #c0c2c7;
+}
+
+/* Thanh cuộn */
+.n8n-chat-messages {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chat--color--primary) var(--chat--color-light);
+}
+.n8n-chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.n8n-chat-messages::-webkit-scrollbar-track {
+  background: var(--chat--color-light);
+}
+.n8n-chat-messages::-webkit-scrollbar-thumb {
+  background-color: var(--chat--color--primary);
+  border-radius: 6px;
+}

@@ -1,0 +1,140 @@
+/* Question icon */
+.userManage-questionIcon {
+  color: #8c8c8c;
+}
+
+/* Header container */
+.userManage-headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Loading container */
+.userManage-loadingContainer {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.userManage-loadingText {
+  margin-top: 16px;
+}
+
+/* Error container */
+.userManage-errorContainer {
+  padding: 48px 32px;
+  text-align: center;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 12px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.06);
+  position: relative;
+}
+
+.userManage-errorIconContainer {
+  margin-bottom: 16px;
+}
+
+.userManage-errorIcon {
+  font-size: 48px;
+  color: #ff4d4f;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.userManage-errorContent {
+  margin-bottom: 24px;
+}
+
+.userManage-errorTitle {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.userManage-errorDescription {
+  font-size: 14px;
+  color: #8c8c8c;
+  display: block;
+}
+
+.userManage-retryButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.userManage-reloadButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+}
+
+/* Modal title */
+.userManage-modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userManage-modalAvatar {
+  background-color: #1890ff;
+}
+
+.userManage-modalUsername {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.userManage-modalFullName {
+  font-size: 18px;
+  color: #1890ff;
+}
+
+/* Summary container */
+.userManage-summaryContainer {
+  /* display: flex;
+  justify-content: space-between; */
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Tab content */
+.userManage-tabContent {
+  padding: 16px 0;
+}
+
+/* Detail grid */
+.userManage-detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.userManage-idText {
+  font-size: 12px;
+  color: #666;
+}
+
+.userManage-googleIdText {
+  font-size: 12px;
+  color: #999;
+}
+
+.userManage-googleIdText:has-text {
+  color: #666;
+}
+
+/* Developing feature */
+.userManage-developingFeature {
+  padding: 16px 0;
+  text-align: center;
+}

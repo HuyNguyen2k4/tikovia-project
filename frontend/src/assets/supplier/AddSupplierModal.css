@@ -1,0 +1,112 @@
+/* Modal styling */
+.addSupplier-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.addSupplier-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addSupplier-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.addSupplier-description {
+  margin-bottom: 16px;
+}
+
+/* Notice box */
+.addSupplier-noticeBox {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+}
+
+.addSupplier-noticeText {
+  font-size: 13px;
+  color: #389e0d;
+}
+
+.addSupplier-noticeIcon {
+  font-size: 18px;
+}
+
+/* Divider */
+.addSupplier-divider {
+  margin: 16px 0;
+}
+
+/* Form */
+
+
+/* Input styling */
+
+
+.addSupplier-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Select styling */
+
+/* Role option */
+.addSupplier-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addSupplier-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.addSupplier-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.addSupplier-roleIndicator--blue {
+  background-color: #1890ff;
+}
+
+.addSupplier-roleIndicator--purple {
+  background-color: #722ed1;
+}
+
+.addSupplier-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.addSupplier-roleIndicator--cyan {
+  background-color: #13c2c2;
+}
+
+.addSupplier-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.addSupplier-roleIndicator--gold {
+  background-color: #faad14;
+}
+
+.addSupplier-roleIndicator--magenta {
+  background-color: #eb2f96;
+}
+
+/* Submit container */
+.addSupplier-submitContainer {
+  margin-bottom: 0;
+  margin-top: 34px;
+}
+
+.addSupplier-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}

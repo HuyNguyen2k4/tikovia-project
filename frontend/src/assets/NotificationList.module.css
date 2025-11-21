@@ -1,0 +1,41 @@
+.notificationList {
+  width: 420px;
+  max-width: 95vw;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 0 8px 8px 8px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.notificationItem {
+  padding: 8px !important;
+  border-radius: 8px;
+}
+.notificationItem:hover {
+  background: #dce4ec;
+  transition: background 0.2s;
+}
+.viewAll {
+  margin-top: 8px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-top: 1px solid #f0f0f0;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.notificationItem :global(.ant-list-item-meta-avatar) {
+  align-self: center;
+}
+/* @media (max-width: 480px) {
+  .notificationList {
+    width: 98vw;
+    min-width: 0;
+    padding: 4px;
+  }
+  .viewAll {
+    padding: 6px;
+    font-size: 15px;
+  }
+} */

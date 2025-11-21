@@ -1,0 +1,107 @@
+/* Modal styling */
+.editSupplier-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.editSupplier-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editSupplier-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.editSupplier-description {
+  margin-bottom: 16px;
+}
+
+.editSupplier-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Role option */
+.editSupplier-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editSupplier-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.editSupplier-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.editSupplier-roleIndicator--blue {
+  background-color: #1890ff;
+}
+
+.editSupplier-roleIndicator--purple {
+  background-color: #722ed1;
+}
+
+.editSupplier-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.editSupplier-roleIndicator--cyan {
+  background-color: #13c2c2;
+}
+
+.editSupplier-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.editSupplier-roleIndicator--gold {
+  background-color: #faad14;
+}
+
+.editSupplier-roleIndicator--magenta {
+  background-color: #eb2f96;
+}
+
+/* Status option */
+.editSupplier-statusOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editSupplier-statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Status indicator colors */
+.editSupplier-statusIndicator--green {
+  background-color: #52c41a;
+}
+
+.editSupplier-statusIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.editSupplier-statusIndicator--red {
+  background-color: #ff4d4f;
+}
+
+/* Submit container */
+.editSupplier-submitContainer {
+  margin-bottom: 0;
+  margin-top: 24px;
+}
+
+.editSupplier-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}

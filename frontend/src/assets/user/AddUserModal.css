@@ -1,0 +1,194 @@
+/* Modal styling */
+.addUser-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.addUser-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addUser-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.addUser-description {
+  margin-bottom: 16px;
+}
+
+/* Notice box */
+.addUser-noticeBox {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+}
+
+.addUser-noticeText {
+  font-size: 13px;
+  color: #389e0d;
+}
+
+.addUser-noticeIcon {
+  font-size: 18px;
+}
+
+/* Divider */
+.addUser-divider {
+  margin: 16px 0;
+}
+
+/* Form */
+
+
+/* Input styling */
+
+
+.addUser-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Select styling */
+
+/* Role option */
+.addUser-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addUser-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.addUser-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.addUser-roleIndicator--blue {
+  background-color: #1890ff;
+}
+
+.addUser-roleIndicator--purple {
+  background-color: #722ed1;
+}
+
+.addUser-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.addUser-roleIndicator--cyan {
+  background-color: #13c2c2;
+}
+
+.addUser-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.addUser-roleIndicator--gold {
+  background-color: #faad14;
+}
+
+.addUser-roleIndicator--magenta {
+  background-color: #eb2f96;
+}
+
+/* Submit container */
+.addUser-submitContainer {
+  margin-bottom: 0;
+  margin-top: 24px;
+}
+
+.addUser-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}
+/* Thêm vào AddUserModal.css */
+.addUser-departmentOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.addUser-departmentMain {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.addUser-departmentIcon {
+  color: #1890ff;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.addUser-departmentInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.addUser-departmentName {
+  font-weight: 500;
+  color: #262626;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addUser-departmentDetails {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addUser-departmentCode {
+  font-weight: 500;
+  color: #1890ff;
+}
+
+.addUser-departmentAddress {
+  margin-left: 4px;
+}
+
+.addUser-departmentStatus {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.addUser-departmentStatus--active {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.addUser-departmentStatus--inactive {
+  background-color: #fff2e8;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+}
+
+/* Style cho disabled options */
+.ant-select-item-option-disabled .addUser-departmentOption {
+  opacity: 0.5;
+}
+
+/* Loading state */
+.addUser-select .ant-select-selection-search-input::placeholder {
+  font-style: italic;
+}

@@ -1,0 +1,44 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 20px;
+  /* Hiệu ứng sóng màu xanh */
+  background-image: url("/images/login-background.png");
+  animation: gradientAnimation 15s ease infinite;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.error-wrapper {
+  background: #ffffff;
+  padding: 5%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px;
+}
+.error-image {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.error-title {
+  font-weight: bold;
+  color: #333333;
+  margin: 70px 0 30px;
+  text-align: center;
+}
+.error-button {
+  background-color: #4880ff;
+  padding: 25px;
+}

@@ -1,0 +1,194 @@
+/* Question icon */
+.invenLotManage-questionIcon {
+  color: #8c8c8c;
+}
+
+/* Header container */
+.invenLotManage-headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Loading container */
+.invenLotManage-loadingContainer {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.invenLotManage-loadingText {
+  margin-top: 16px;
+}
+
+/* Error container */
+.invenLotManage-errorContainer {
+  padding: 48px 32px;
+  text-align: center;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 12px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.06);
+  position: relative;
+}
+
+.invenLotManage-errorIconContainer {
+  margin-bottom: 16px;
+}
+
+.invenLotManage-errorIcon {
+  font-size: 48px;
+  color: #ff4d4f;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.invenLotManage-errorContent {
+  margin-bottom: 24px;
+}
+
+.invenLotManage-errorTitle {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.invenLotManage-errorDescription {
+  font-size: 14px;
+  color: #8c8c8c;
+  display: block;
+}
+
+.invenLotManage-retryButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.invenLotManage-reloadButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+}
+
+/* Modal title */
+.invenLotManage-modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.invenLotManage-modalAvatar {
+  background-color: #1890ff;
+}
+
+.invenLotManage-modalUsername {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.invenLotManage-modalFullName {
+  font-size: 18px;
+  color: #1890ff;
+}
+
+/* Summary container */
+.invenLotManage-summaryContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Tab content */
+.invenLotManage-tabContent {
+  padding: 16px 0;
+}
+
+/* Detail grid */
+.invenLotManage-detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.invenLotManage-idText {
+  font-size: 12px;
+  color: #666;
+}
+
+.invenLotManage-googleIdText {
+  font-size: 12px;
+  color: #999;
+}
+
+.invenLotManage-googleIdText:has-text {
+  color: #666;
+}
+
+/* Developing feature */
+.invenLotManage-developingFeature {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.lot-detail-modal {
+  width: 100%;
+}
+.lot-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+  margin-top: 8px;
+}
+.lot-detail-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  /* box-shadow: 4px 4px 4px 4px rgba(22, 119, 255, 0.04); */
+  box-shadow: 0 4px 16px 0 rgba(22, 119, 255, 0.12); /* bóng đều 4 phía */
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+  justify-content: center;
+}
+.lot-detail-value {
+  font-size: 15px;
+  margin-top: 2px;
+  color: #222;
+  word-break: break-all;
+}
+.invenLotManage-modalTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  word-break: break-word;
+  min-width: 0;
+}
+.invenLotManage-modalLotNo {
+  font-weight: 600;
+  font-size: 18px;
+  min-width: 0;
+  word-break: break-word;
+}
+.invenLotManage-modalDepartmentName {
+  font-weight: 500;
+  flex-shrink: 0;
+  max-width: 100%;
+  word-break: break-word;
+}
+.invenLotManage-custom-modal .ant-modal-content {
+  background-color: #f0f2f5 !important;
+}
+.invenLotManage-custom-modal .ant-modal-header {
+  background-color: #f0f2f5 !important;
+}

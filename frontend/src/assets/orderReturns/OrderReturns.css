@@ -1,0 +1,86 @@
+.orderReturns-errorContainer {
+  padding: 48px 32px;
+  text-align: center;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 12px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.06);
+  position: relative;
+}
+
+.orderReturns-errorIconContainer {
+  margin-bottom: 16px;
+}
+
+.orderReturns-errorIcon {
+  font-size: 48px;
+  color: #ff4d4f;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.orderReturns-errorContent {
+  margin-bottom: 24px;
+}
+
+.orderReturns-errorTitle {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.orderReturns-errorDescription {
+  font-size: 14px;
+  color: #8c8c8c;
+  display: block;
+}
+
+.orderReturns-retryButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.orderReturns-reloadButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+}
+/* Loading container */
+.orderReturns-loadingContainer {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+/* Container chính bao bọc toàn bộ khu vực upload */
+.orderReturns-uploadContainer .ant-upload-wrapper.ant-upload-picture-card-wrapper {
+  width: 100%;
+}
+
+/* Style chung cho cả khung upload trống và khung chứa ảnh đã tải lên.
+  Giúp chúng có cùng kích thước và giao diện đồng nhất.
+*/
+.orderReturns-uploadContainer .ant-upload.ant-upload-select,
+.orderReturns-uploadContainer .ant-upload-list-item-container {
+  width: 100% !important; /* Ghi đè style mặc định của antd để chiếm toàn bộ chiều rộng */
+  height: 320px !important; /* Tăng chiều cao để ảnh preview trông đẹp hơn */
+  margin: 0 !important; /* Xóa margin mặc định */
+  border-radius: 8px; /* Bo góc cho mềm mại, đồng bộ với các input khác */
+}
+
+/* Style cho khung upload khi còn trống (dạng dropzone) */
+.orderReturns-uploadContainer .ant-upload.ant-upload-select {
+  background-color: #fafafa;
+  border: 2px dashed #d9d9d9;
+  transition: border-color 0.3s ease;
+}
+
+/* Hiệu ứng khi hover vào khung upload */
+.orderReturns-uploadContainer .ant-upload.ant-upload-select:hover {
+  border-color: #1677ff; /* Sử dụng màu primary mới của Ant Design */
+}

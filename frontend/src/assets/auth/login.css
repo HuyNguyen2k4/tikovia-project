@@ -1,0 +1,114 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 20px;
+  /* Hiệu ứng sóng màu xanh */
+  background-image: url("/images/login-background.png");
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-form-wrapper {
+  background: #ffffff;
+  padding: 37px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px;
+}
+
+/* Tùy chỉnh nhỏ cho các label và button của AntD */
+.login-label .ant-form-item-label > label {
+  font-weight: 500;
+  color: #595959;
+}
+
+/* .ant-btn-primary {
+  background: #4a90e2;
+  border-color: #4a90e2;
+  font-weight: bold;
+}
+
+.ant-btn-primary:hover {
+  background: #357abd;
+  border-color: #357abd;
+} */
+
+.login-form-wrapper .ant-form-item-label > label {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-form-wrapper .ant-form-item-label > label::after {
+  display: none !important;
+}
+.password-label {
+  /* width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #595959;
+}
+.forget-password-link {
+  color: #797a7c !important;
+}
+.login-button {
+  display: flex;
+  width: 80% !important;
+  margin: 0 auto;
+  background: #4880ff !important;
+  font-weight: normal;
+}
+/* Responsive padding cho màn hình nhỏ */
+@media (max-width: 600px) {
+  .login-form-wrapper {
+    padding: 30px 18px;
+  }
+}
+/* login google button */
+.google {
+  background-image: url("/images/icons8-google-48.png");
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: 10px;
+}
+.btn-login-google {
+  width: 100%;
+  /* font-size: 16px; */
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #777;
+  margin-bottom: 0.7rem;
+  background-color: #fff;
+  color: black;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-login-google:hover {
+  border: 1px solid #777;
+  background-color: #ddd;
+}
+.btn-login-google:focus {
+  background-color: #c6c2c2;
+  color: black;
+}

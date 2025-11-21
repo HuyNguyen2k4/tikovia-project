@@ -1,0 +1,236 @@
+/* Question icon */
+.productManage-questionIcon {
+  color: #8c8c8c;
+}
+
+/* Header container */
+.productManage-headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  row-gap: 8px;
+}
+.productManage-headerContainer > .ant-typography {
+  flex: 1 1 auto;
+  min-width: 180px;
+  margin-bottom: 0;
+}
+
+.productManage-headerContainer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Loading container */
+.productManage-loadingContainer {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.productManage-loadingText {
+  margin-top: 16px;
+}
+
+/* Error container */
+.productManage-errorContainer {
+  padding: 48px 32px;
+  text-align: center;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 12px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.06);
+  position: relative;
+}
+
+.productManage-errorIconContainer {
+  margin-bottom: 16px;
+}
+
+.productManage-errorIcon {
+  font-size: 48px;
+  color: #ff4d4f;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.productManage-errorContent {
+  margin-bottom: 24px;
+}
+
+.productManage-errorTitle {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.productManage-errorDescription {
+  font-size: 14px;
+  color: #8c8c8c;
+  display: block;
+}
+
+.productManage-retryButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.productManage-reloadButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+}
+
+/* Modal title */
+.productManage-modalTitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.productManage-modalAvatar {
+  background-color: #1890ff;
+}
+
+.productManage-modalUsername {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.productManage-modalFullName {
+  font-size: 20px;
+  font-weight: 600;
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 60vw;
+}
+
+/* Summary container */
+.productManage-summaryContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Tab content */
+.productManage-tabContent {
+  padding: 16px 0;
+}
+
+/* Detail grid */
+.productManage-detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.productManage-detailGridItem {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 4px rgba(22, 119, 255, 0.04);
+}
+.productManage-detailValue {
+  font-size: 15px;
+  margin-top: 2px;
+  color: #222;
+  word-break: break-all;
+}
+
+.productManage-idText {
+  font-size: 12px;
+  color: #666;
+}
+
+.productManage-googleIdText {
+  font-size: 12px;
+  color: #999;
+}
+
+.productManage-googleIdText:has-text {
+  color: #666;
+}
+
+/* Developing feature */
+.productManage-developingFeature {
+  padding: 16px 0;
+  text-align: center;
+}
+/* .productManage-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.productManage-imageContainer .ant-image-mask {
+  max-width: 50%;
+  margin: 0 auto;
+  border-radius: 8px;
+} */
+@media (max-width: 600px) {
+  .productManage-headerContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .productManage-headerContainer > .ant-typography {
+    margin-bottom: 4px;
+  }
+  .productManage-headerContainer > div {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .productManage-modalTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .productManage-modalFullName {
+    font-size: 16px;
+    max-width: 90vw;
+  }
+}
+@media (max-width: 768px) {
+  .productManage-detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.productManage-imageContainer {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+.productManage-image {
+  max-width: 100%;
+  height: 500px;
+  max-height: 220px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.custom-modal .ant-modal-content {
+  background-color: #f0f2f5; /* Màu nền Modal */
+}
+.custom-modal .ant-modal-header {
+  background-color: #f0f2f5 !important;
+}

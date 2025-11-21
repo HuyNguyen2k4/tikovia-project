@@ -1,0 +1,50 @@
+/* Custom scrollbar cho Table body */
+.custom-table-scroll .ant-table-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-table-scroll .ant-table-body::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.custom-table-scroll .ant-table-body::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.custom-table-scroll .ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* Firefox support */
+.custom-table-scroll .ant-table-body {
+  scrollbar-width: thin;
+  scrollbar-color: #d9d9d9 #f5f5f5;
+}
+
+/* Ẩn scrollbar hoàn toàn (uncomment nếu muốn dùng) */
+.no-scrollbar-table .ant-table-body::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar-table .ant-table-body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Row selected style */
+.ant-table-row-selected {
+  background-color: #e6f7ff !important;
+}
+
+.ant-table-row-selected:hover > td {
+  background-color: #bae7ff !important;
+}
+
+/* Smooth scroll */
+.custom-table-scroll .ant-table-body {
+  scroll-behavior: smooth;
+}

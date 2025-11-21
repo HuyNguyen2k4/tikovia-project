@@ -1,0 +1,221 @@
+/* EditUserModal.css */
+.editUser-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editUser-titleIcon {
+  color: #1890ff;
+}
+
+.editUser-description {
+  margin-bottom: 16px;
+}
+
+.editUser-currentInfo {
+  padding: 12px;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.editUser-form {
+  margin-top: 16px;
+}
+
+.editUser-inputIcon {
+  color: #bfbfbf;
+}
+
+.editUser-input,
+.editUser-select {
+  border-radius: 6px;
+}
+
+/* Role options styling */
+.editUser-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editUser-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.editUser-roleIndicator--red { background-color: #ff4d4f; }
+.editUser-roleIndicator--blue { background-color: #1890ff; }
+.editUser-roleIndicator--purple { background-color: #722ed1; }
+.editUser-roleIndicator--green { background-color: #52c41a; }
+.editUser-roleIndicator--cyan { background-color: #13c2c2; }
+.editUser-roleIndicator--orange { background-color: #fa8c16; }
+.editUser-roleIndicator--gold { background-color: #faad14; }
+.editUser-roleIndicator--magenta { background-color: #eb2f96; }
+
+/* Status options styling */
+.editUser-statusOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editUser-statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.editUser-statusIndicator--green { background-color: #52c41a; }
+.editUser-statusIndicator--red { background-color: #ff4d4f; }
+
+/* Department options styling */
+.editUser-departmentOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.editUser-departmentMain {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+.editUser-departmentIcon {
+  color: #1890ff;
+  margin-right: 8px;
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.editUser-departmentInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.editUser-departmentName {
+  font-weight: 500;
+  color: #262626;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.editUser-departmentDetails {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.editUser-departmentCode {
+  font-weight: 500;
+  color: #1890ff;
+}
+
+.editUser-departmentAddress {
+  margin-left: 4px;
+}
+
+.editUser-departmentStatus {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.editUser-departmentStatus--active {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.editUser-departmentStatus--inactive {
+  background-color: #fff2e8;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+}
+
+/* Selected department display */
+.editUser-selectedDepartment {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.editUser-selectedDepartmentIcon {
+  color: #1890ff;
+  margin-right: 6px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.editUser-selectedDepartmentName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* Submit container */
+.editUser-submitContainer {
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.editUser-buttonGroup {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editUser-cancelButton {
+  min-width: 100px;
+}
+
+.editUser-submitButton {
+  min-width: 120px;
+}
+
+/* Override Ant Design styles */
+.editUser-select .ant-select-selection-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Style cho disabled options */
+.ant-select-item-option-disabled .editUser-departmentOption {
+  opacity: 0.5;
+}
+
+.ant-select-item-option-disabled .editUser-departmentOption * {
+  color: #bfbfbf !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .editUser-departmentOption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .editUser-departmentStatus {
+    margin-left: 22px;
+  }
+}

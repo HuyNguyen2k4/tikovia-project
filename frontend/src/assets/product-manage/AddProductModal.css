@@ -1,0 +1,240 @@
+/* Modal styling */
+.addProduct-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.addProduct-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addProduct-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.addProduct-description {
+  margin-bottom: 16px;
+}
+
+/* Notice box */
+.addProduct-noticeBox {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+}
+
+.addProduct-noticeText {
+  font-size: 13px;
+  color: #389e0d;
+}
+
+.addProduct-noticeIcon {
+  font-size: 18px;
+}
+
+/* Divider */
+.addProduct-divider {
+  margin: 16px 0;
+}
+
+/* Form */
+
+/* Input styling */
+
+.addProduct-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Select styling */
+
+/* Role option */
+.addProduct-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addProduct-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.addProduct-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.addProduct-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.addProduct-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+/* Submit container */
+.addProduct-submitContainer {
+  margin-bottom: 0;
+  margin-top: 24px;
+}
+
+.addProduct-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}
+/* Thêm vào addProductModal.css */
+.addProduct-departmentOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.addProduct-departmentMain {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.addProduct-departmentIcon {
+  color: #1890ff;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.addProduct-departmentInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.addProduct-departmentName {
+  font-weight: 500;
+  color: #262626;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addProduct-departmentDetails {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addProduct-departmentCode {
+  font-weight: 500;
+  color: #1890ff;
+}
+
+.addProduct-departmentAddress {
+  margin-left: 4px;
+}
+
+.addProduct-departmentStatus {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.addProduct-departmentStatus--active {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.addProduct-departmentStatus--inactive {
+  background-color: #fff2e8;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+}
+
+/* Style cho disabled options */
+.ant-select-item-option-disabled .addProduct-departmentOption {
+  opacity: 0.5;
+}
+
+/* Loading state */
+.addProduct-select .ant-select-selection-search-input::placeholder {
+  font-style: italic;
+}
+/* .addProduct-uploadContainer .ant-upload-list-item-container{
+  width: 100% !important;
+  height: 180px !important;
+} */
+/* --- PHẦN UPLOAD ẢNH ĐƯỢC THIẾT KẾ LẠI --- */
+
+/* Container chính bao bọc toàn bộ khu vực upload */
+.addProduct-uploadContainer .ant-upload-wrapper.ant-upload-picture-card-wrapper {
+  width: 100%;
+}
+
+/* Style chung cho cả khung upload trống và khung chứa ảnh đã tải lên.
+  Giúp chúng có cùng kích thước và giao diện đồng nhất.
+*/
+.addProduct-uploadContainer .ant-upload.ant-upload-select,
+.addProduct-uploadContainer .ant-upload-list-item-container {
+  width: 100% !important; /* Ghi đè style mặc định của antd để chiếm toàn bộ chiều rộng */
+  height: 320px !important; /* Tăng chiều cao để ảnh preview trông đẹp hơn */
+  margin: 0 !important; /* Xóa margin mặc định */
+  border-radius: 8px; /* Bo góc cho mềm mại, đồng bộ với các input khác */
+}
+
+/* Style cho khung upload khi còn trống (dạng dropzone) */
+.addProduct-uploadContainer .ant-upload.ant-upload-select {
+  background-color: #fafafa;
+  border: 2px dashed #d9d9d9;
+  transition: border-color 0.3s ease;
+}
+
+/* Hiệu ứng khi hover vào khung upload */
+.addProduct-uploadContainer .ant-upload.ant-upload-select:hover {
+  border-color: #1677ff; /* Sử dụng màu primary mới của Ant Design */
+}
+
+/* Căn giữa nội dung bên trong khung upload (icon và text) */
+.upload-dragger-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px; /* Khoảng cách giữa icon và text */
+}
+
+.upload-dragger-inner .anticon {
+  font-size: 38px;
+  color: #1677ff;
+}
+
+.upload-dragger-inner .upload-text {
+  color: #595959;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Style cho ảnh thumbnail sau khi đã upload */
+.addProduct-uploadContainer .ant-upload-list-item {
+  padding: 8px !important; /* Thêm padding để ảnh không bị sát viền */
+  border: 1px solid #d9d9d9;
+}
+
+/* Đảm bảo ảnh preview luôn lấp đầy khung mà không bị méo */
+.addProduct-uploadContainer .ant-upload-list-item-thumbnail img,
+.addProduct-uploadContainer .ant-upload-list-item-image {
+  object-fit: cover !important;
+  width: 100%;
+  height: 100%;
+}

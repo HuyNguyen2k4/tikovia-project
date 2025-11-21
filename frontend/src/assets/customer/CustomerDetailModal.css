@@ -1,0 +1,111 @@
+/* src/assets/customer/CustomerDetailModal.css */
+
+.customerDetail-modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customerDetail-modalAvatar {
+  background-color: #1890ff;
+}
+
+.customerDetail-modalCode {
+  font-size: 16px;
+  font-weight: 600;
+  color: #595959;
+}
+
+.customerDetail-modalName {
+  font-size: 20px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.customerDetail-container {
+  /* max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 8px; */
+}
+
+/* Phần tóm tắt đầu modal */
+.customerDetail-summaryContainer {
+  background-color: #f8f9fa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.customerDetail-summaryContainer .ant-typography strong {
+  margin-left: 8px;
+  color: #595959;
+}
+
+/* Các thẻ thống kê */
+.customerDetail-statCard {
+  background-color: #f0f2f5 !important;
+  border-radius: 8px;
+  padding: 8px 12px !important;
+}
+.customerDetail-statCard .ant-card-body {
+  padding: 0 !important;
+}
+.customerDetail-statCard .ant-typography {
+  margin: 0;
+  line-height: 1.3;
+}
+.customerDetail-statCard .ant-typography-secondary {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.customerDetail-statCard .ant-typography-title {
+  font-size: 22px !important;
+  font-weight: 600;
+}
+
+/* Màu cho thẻ thống kê */
+.customerDetail-statCard-debt .ant-typography-title {
+  color: #fa8c16; /* Cam */
+}
+.customerDetail-statCard-net .ant-typography-title {
+  color: #389e0d; /* Xanh lá */
+}
+
+/* Nội dung bên trong Tab */
+.customerDetail-tabContent {
+  padding: 16px 4px;
+}
+
+.customerDetail-tabContent .ant-descriptions-item-label {
+  font-weight: 600;
+  color: #595959;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.customerDetail-tabContent .ant-descriptions-item-label .anticon {
+  font-size: 16px;
+}
+
+/* Tab Công nợ */
+.customerDetail-debtTab {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fffbe6;
+  border: 1px dashed #ffe58f;
+  border-radius: 8px;
+}
+.customerDetail-debtTab .customerDetail-debtAmount {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fa8c16;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.customerDetail-cartTitle {
+  font-size: 15px;
+  color: #8C8C8C;
+  font-weight: 500;
+  align-self: flex-start;
+}

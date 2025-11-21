@@ -1,0 +1,112 @@
+/* Modal styling */
+.addDepart-modal .ant-modal-content {
+  border-radius: 8px;
+}
+
+/* Title container */
+.addDepart-titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addDepart-titleIcon {
+  color: #1890ff;
+}
+
+/* Description */
+.addDepart-description {
+  margin-bottom: 16px;
+}
+
+/* Notice box */
+.addDepart-noticeBox {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+}
+
+.addDepart-noticeText {
+  font-size: 13px;
+  color: #389e0d;
+}
+
+.addDepart-noticeIcon {
+  font-size: 18px;
+}
+
+/* Divider */
+.addDepart-divider {
+  margin: 16px 0;
+}
+
+/* Form */
+
+
+/* Input styling */
+
+
+.addDepart-inputIcon {
+  color: #bfbfbf;
+}
+
+/* Select styling */
+
+/* Role option */
+.addDepart-roleOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addDepart-roleIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Role indicator colors */
+.addDepart-roleIndicator--red {
+  background-color: #ff4d4f;
+}
+
+.addDepart-roleIndicator--blue {
+  background-color: #1890ff;
+}
+
+.addDepart-roleIndicator--purple {
+  background-color: #722ed1;
+}
+
+.addDepart-roleIndicator--green {
+  background-color: #52c41a;
+}
+
+.addDepart-roleIndicator--cyan {
+  background-color: #13c2c2;
+}
+
+.addDepart-roleIndicator--orange {
+  background-color: #fa8c16;
+}
+
+.addDepart-roleIndicator--gold {
+  background-color: #faad14;
+}
+
+.addDepart-roleIndicator--magenta {
+  background-color: #eb2f96;
+}
+
+/* Submit container */
+.addDepart-submitContainer {
+  margin-bottom: 0;
+  margin-top: 34px;
+}
+
+.addDepart-buttonGroup {
+  width: 100%;
+  justify-content: flex-end;
+}

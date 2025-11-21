@@ -1,0 +1,281 @@
+/* Delivery Runs Manage Styles */
+.delivery-runs-container {
+  padding: 20px;
+}
+
+.delivery-runs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.delivery-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vehicle-no {
+  font-weight: 500;
+  color: #1890ff;
+}
+
+.orders-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.orders-count-badge {
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Detail Modal Styles */
+.delivery-detail-modal .ant-modal-body {
+}
+
+.delivery-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.delivery-detail-info {
+  flex: 1;
+}
+
+.delivery-detail-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.delivery-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.delivery-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.delivery-info-label {
+  font-size: 12px;
+  color: #8c8c8c;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.delivery-info-value {
+  font-size: 14px;
+  color: #262626;
+  font-weight: 500;
+}
+
+.delivery-orders-section {
+  margin-top: 24px;
+}
+
+.delivery-orders-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.delivery-order-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.delivery-order-card:hover {
+  background: #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.delivery-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.delivery-order-route-seq {
+  background: #1890ff;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.delivery-order-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.delivery-order-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cod-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cod-amount {
+  font-weight: 600;
+  color: #52c41a;
+  font-size: 16px;
+}
+
+.actual-pay {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .delivery-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-order-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- PHẦN UPLOAD ẢNH ĐƯỢC THIẾT KẾ LẠI --- */
+
+/* Container chính bao bọc toàn bộ khu vực upload */
+.editDelivery-uploadContainer .ant-upload-wrapper.ant-upload-picture-card-wrapper {
+  width: 100%;
+}
+
+/* Style chung cho cả khung upload trống và khung chứa ảnh đã tải lên.
+  Giúp chúng có cùng kích thước và giao diện đồng nhất.
+*/
+.editDelivery-uploadContainer .ant-upload.ant-upload-select,
+.editDelivery-uploadContainer .ant-upload-list-item-container {
+  width: 100% !important; /* Ghi đè style mặc định của antd để chiếm toàn bộ chiều rộng */
+  height: 150px !important; /* Tăng chiều cao để ảnh preview trông đẹp hơn */
+  margin: 0 !important; /* Xóa margin mặc định */
+  border-radius: 8px; /* Bo góc cho mềm mại, đồng bộ với các input khác */
+}
+
+/* Style cho khung upload khi còn trống (dạng dropzone) */
+.editDelivery-uploadContainer .ant-upload.ant-upload-select {
+  background-color: #fafafa;
+  border: 2px dashed #d9d9d9;
+  transition: border-color 0.3s ease;
+}
+
+/* Hiệu ứng khi hover vào khung upload */
+.editDelivery-uploadContainer .ant-upload.ant-upload-select:hover {
+  border-color: #1677ff; /* Sử dụng màu primary mới của Ant Design */
+}
+
+/* Căn giữa nội dung bên trong khung upload (icon và text) */
+.upload-dragger-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px; /* Khoảng cách giữa icon và text */
+}
+
+.upload-dragger-inner .anticon {
+  font-size: 38px;
+  color: #1677ff;
+}
+
+.upload-dragger-inner .upload-text {
+  color: #595959;
+  font-size: 16px;
+  font-weight: 500;
+}
+/* for updateDeliveryOrderModal */
+/* Style cho ảnh thumbnail sau khi đã upload */
+.updateDelivery-uploadContainer .ant-upload-list-item {
+  padding: 8px !important; /* Thêm padding để ảnh không bị sát viền */
+  border: 1px solid #d9d9d9;
+}
+
+/* Đảm bảo ảnh preview luôn lấp đầy khung mà không bị méo */
+.updateDelivery-uploadContainer .ant-upload-list-item-thumbnail img,
+.updateDelivery-uploadContainer .ant-upload-list-item-image {
+  object-fit: cover !important;
+  width: 100%;
+  height: 100%;
+}
+/* Container chính bao bọc toàn bộ khu vực upload */
+.updateDelivery-uploadContainer .ant-upload-wrapper.ant-upload-picture-card-wrapper {
+  width: 100%;
+}
+
+/* Style chung cho cả khung upload trống và khung chứa ảnh đã tải lên.
+  Giúp chúng có cùng kích thước và giao diện đồng nhất.
+*/
+.updateDelivery-uploadContainer .ant-upload.ant-upload-select,
+.updateDelivery-uploadContainer .ant-upload-list-item-container {
+  width: 100% !important; /* Ghi đè style mặc định của antd để chiếm toàn bộ chiều rộng */
+  height: 250px !important; /* Tăng chiều cao để ảnh preview trông đẹp hơn */
+  margin: 0 !important; /* Xóa margin mặc định */
+  border-radius: 8px; /* Bo góc cho mềm mại, đồng bộ với các input khác */
+}
+
+/* Style cho khung upload khi còn trống (dạng dropzone) */
+.updateDelivery-uploadContainer .ant-upload.ant-upload-select {
+  background-color: #fafafa;
+  border: 2px dashed #d9d9d9;
+  transition: border-color 0.3s ease;
+}
+
+/* Hiệu ứng khi hover vào khung upload */
+.updateDelivery-uploadContainer .ant-upload.ant-upload-select:hover {
+  border-color: #1677ff; /* Sử dụng màu primary mới của Ant Design */
+}
+/* Style cho ảnh thumbnail sau khi đã upload */
+.updateDelivery-uploadContainer .ant-upload-list-item {
+  padding: 8px !important; /* Thêm padding để ảnh không bị sát viền */
+  border: 1px solid #d9d9d9;
+}
+
+/* Đảm bảo ảnh preview luôn lấp đầy khung mà không bị méo */
+.updateDelivery-uploadContainer .ant-upload-list-item-thumbnail img,
+.updateDelivery-uploadContainer .ant-upload-list-item-image {
+  object-fit: cover !important;
+  width: 100%;
+  height: 100%;
+}

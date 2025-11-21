@@ -1,0 +1,153 @@
+/* Question icon */
+.departManage-questionIcon {
+  color: #8c8c8c;
+}
+
+/* Header container */
+.departManage-headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.departManage-headerContainer > .ant-typography {
+  flex: 1 1 auto;
+  min-width: 180px;
+  margin-bottom: 0;
+}
+
+.departManage-headerContainer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Loading container */
+.departManage-loadingContainer {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.departManage-loadingText {
+  margin-top: 16px;
+}
+
+/* Error container */
+.departManage-errorContainer {
+  padding: 48px 32px;
+  text-align: center;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 12px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.06);
+  position: relative;
+}
+
+.departManage-errorIconContainer {
+  margin-bottom: 16px;
+}
+
+.departManage-errorIcon {
+  font-size: 48px;
+  color: #ff4d4f;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.departManage-errorContent {
+  margin-bottom: 24px;
+}
+
+.departManage-errorTitle {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.departManage-errorDescription {
+  font-size: 14px;
+  color: #8c8c8c;
+  display: block;
+}
+
+.departManage-retryButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.departManage-reloadButton {
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+}
+
+/* Modal title */
+.departManage-modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.departManage-modalAvatar {
+  background-color: #1890ff;
+}
+
+.departManage-modalUsername {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.departManage-modalFullName {
+  font-size: 18px;
+  color: #1890ff;
+}
+
+/* Summary container */
+.departManage-summaryContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Tab content */
+.departManage-tabContent {
+  padding: 16px 0;
+}
+
+/* Detail grid */
+.departManage-detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.departManage-idText {
+  font-size: 12px;
+  color: #666;
+}
+
+.departManage-googleIdText {
+  font-size: 12px;
+  color: #999;
+}
+
+.departManage-googleIdText:has-text {
+  color: #666;
+}
+
+/* Developing feature */
+.departManage-developingFeature {
+  padding: 16px 0;
+  text-align: center;
+}
