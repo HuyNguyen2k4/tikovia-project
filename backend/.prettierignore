@@ -1,0 +1,6 @@
+dist
+node_modules
+build
+package-lock.json
+.env
+ca.pem

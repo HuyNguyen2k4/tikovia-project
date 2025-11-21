@@ -1,0 +1,47 @@
+@startuml View Delivery Team Performance - Sequence Diagram
+
+actor "Supervisor/Shipper" as User
+participant Router
+participant JWT
+participant Controller
+database DB
+
+note over User, DB
+  Features not yet implemented.
+  Following same pattern as Preparation Team.
+end note
+
+== Supervisor View Stats ==
+User -> Router: GET /sup-shipper/stats
+
+Router -> JWT: verifyAccessToken()
+JWT --> Router: req.user = {id, role}
+
+Router -> Controller: getSupervisorShipperStats(req, res)
+
+Controller -> DB: Query statistics (parallel)\nfiltered by supervisor_id
+note right
+  Count runs: in_progress,
+  completed, cancelled,
+  total shippers
+end note
+DB --> Controller: Statistics data
+
+Controller --> Router: 200 OK\n{data: {...}}
+Router --> User: JSON Response
+
+== Shipper View Assigned Runs ==
+User -> Router: GET /shipper/assigned-runs
+
+Router -> JWT: verifyAccessToken()
+JWT --> Router: req.user = {id, role}
+
+Router -> Controller: getShipperAssignedRuns(shipperId)
+
+Controller -> DB: Query delivery_runs with JOINs\n(orders, users)\nfiltered by shipper_id
+DB --> Controller: Delivery runs list
+
+Controller --> Router: 200 OK\n{data: [...]}
+Router --> User: JSON Response
+
+@enduml

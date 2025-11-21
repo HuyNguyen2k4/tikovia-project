@@ -1,0 +1,121 @@
+@startuml View Preparation Team Performance - Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class DashboardController {
+  + getSupervisorPickerStats(req, res)
+  + getOrderProcessing(supervisorId)
+  + getOrderPrepared(supervisorId)
+  + getPickerStats(pickerId)
+  + getOrderAssigned(pickerId)
+}
+
+class SupervisorStatsResponse {
+  success: boolean
+  data: SupervisorPerformance
+}
+
+class SupervisorPerformance {
+  totalOrderAssigned: number
+  totalOrderProcessing: number
+  totalOrderConfirmed: number
+  totalPickers: number
+  totalOrderCancelled: number
+}
+
+class TaskStatusCount {
+  status: string
+  count: number
+}
+
+class PreparationOrderDetail {
+  orderNo: string
+  taskTime: string
+  quantityProduct: number
+  status: string
+  picker: string
+  supPicker: string
+}
+
+class PickerStatsResponse {
+  success: boolean
+  data: PickerPerformance
+}
+
+class PickerPerformance {
+  stats: TaskStatusCount[]
+  assignments: PickerTaskDetail[]
+}
+
+class PickerTaskDetail {
+  taskId: number
+  orderNo: string
+  totalQuantity: number
+  totalItems: number
+  taskStatus: string
+  supervisorName: string
+  packerName: string
+  deadline: string
+  createdAt: string
+  startedAt: string
+  completedAt: string
+}
+
+class Database {
+  + query(sql, params?)
+}
+
+class "preparation_tasks" as TableTasks {
+  id
+  order_id
+  supervisor_id
+  packer_id
+  status
+  deadline
+  created_at
+  started_at
+  completed_at
+}
+
+class "sales_orders" as TableOrders {
+  id
+  order_no
+  status
+  created_at
+}
+
+class "sales_order_items" as TableOrderItems {
+  id
+  order_id
+  qty
+}
+
+class "users" as TableUsers {
+  id
+  full_name
+  role
+}
+
+' Relationships
+DashboardController --> Database : query()
+Database ..> TableTasks
+Database ..> TableOrders
+Database ..> TableOrderItems
+Database ..> TableUsers
+
+SupervisorStatsResponse --> SupervisorPerformance
+PickerStatsResponse --> PickerPerformance
+PickerPerformance *-- TaskStatusCount
+PickerPerformance *-- PickerTaskDetail
+
+TaskStatusCount ..> TableTasks : aggregated by status
+PreparationOrderDetail ..> TableOrders
+PreparationOrderDetail ..> TableTasks
+PreparationOrderDetail ..> TableOrderItems
+PreparationOrderDetail ..> TableUsers : picker & supervisor
+PickerTaskDetail ..> TableTasks
+PickerTaskDetail ..> TableOrders
+PickerTaskDetail ..> TableOrderItems
+PickerTaskDetail ..> TableUsers : supervisor, packer
+
+@enduml

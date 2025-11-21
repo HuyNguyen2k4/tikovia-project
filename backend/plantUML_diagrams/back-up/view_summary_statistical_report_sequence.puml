@@ -1,0 +1,26 @@
+@startuml View Summary Statistical Report - Sequence Diagram
+
+actor User
+participant Router
+participant JWT
+participant Controller
+database DB
+
+User -> Router: GET /admin/stats
+
+Router -> JWT: verifyAccessToken()
+JWT --> Router: req.user = {id, role}
+
+Router -> Controller: getAdminStats(req, res)
+
+Controller -> DB: Query statistics (parallel)
+note right
+  Count from: users, orders,
+  suppliers, products, customers
+end note
+DB --> Controller: Statistics data
+
+Controller --> Router: 200 OK\n{data: {...}}
+Router --> User: JSON Response
+
+@enduml

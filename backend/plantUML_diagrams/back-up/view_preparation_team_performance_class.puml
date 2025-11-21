@@ -1,0 +1,74 @@
+@startuml View Preparation Team Performance - Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class DashboardController {
+  + getSupervisorPickerStats(req, res)
+  + getOrderProcessing(supervisorId)
+  + getPickerStats(pickerId)
+  + getOrderAssigned(pickerId)
+}
+
+class GetTasksRequest {
+  supervisorId: number
+  pickerId: number
+  status: string
+}
+
+class GetTasksResponse {
+  success: boolean
+  data: TaskData[]
+}
+
+class TaskData {
+  taskId: number
+  orderNo: string
+  totalQuantity: number
+  status: string
+  pickerName: string
+  supervisorName: string
+}
+
+class Database {
+  query(sql, params)
+}
+
+class "preparation_tasks" as TableTasks {
+  id
+  order_id
+  supervisor_id
+  packer_id
+  status
+}
+
+class "sales_orders" as TableOrders {
+  id
+  order_no
+  status
+}
+
+class "sales_order_items" as TableOrderItems {
+  id
+  order_id
+  qty
+}
+
+class "users" as TableUsers {
+  id
+  full_name
+  role
+}
+
+' Relationships
+DashboardController ..> GetTasksRequest : uses
+DashboardController ..> GetTasksResponse : creates
+DashboardController --> Database : queries via
+
+Database ..> TableTasks : reads from
+Database ..> TableOrders : reads from
+Database ..> TableOrderItems : reads from
+Database ..> TableUsers : reads from
+
+GetTasksResponse --> TaskData : contains
+
+@enduml

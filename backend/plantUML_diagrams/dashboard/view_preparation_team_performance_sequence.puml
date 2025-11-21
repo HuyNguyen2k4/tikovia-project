@@ -1,0 +1,150 @@
+@startuml
+title 3.2.2 Sequence Diagram for View Preparation Team Performance
+
+actor Supervisor
+actor Picker
+participant "Dashboard FE" as FE
+participant "DashboardRoutes" as Routes
+participant "TokenMiddleware" as Auth
+participant "DashboardController" as Controller
+participant "PreparationDashboardRepository" as Repo
+database "PostgreSQL" as DB
+
+== Supervisor KPIs ==
+Supervisor -> FE: Open Supervisor Dashboard
+activate FE
+FE -> Routes: GET /dashboard/sup-picker/stats
+activate Routes
+Routes -> Auth: verifyAccessToken(req,res,next)
+activate Auth
+Auth -> Auth: Verify JWT token
+alt Token valid
+    Auth --> Routes: next()
+    deactivate Auth
+
+    Routes -> Controller: getSupervisorPickerStats(req,res)
+    activate Controller
+    Controller -> Repo: countTotalOrderAssigned(supervisorId)\n...countTotalOrderCancelled(supervisorId)
+    activate Repo
+    Repo -> DB: Fetch KPI counters for supervisor (parallel queries)
+    activate DB
+    DB --> Repo: totals[]
+    deactivate DB
+    Repo --> Controller: SupervisorPerformance
+    deactivate Repo
+    Controller --> Routes: 200 OK {success,data}
+    deactivate Controller
+    Routes --> FE: KPI JSON
+    deactivate Routes
+else Token invalid
+    Auth --> Routes: res.status(401)
+    deactivate Auth
+    Routes --> FE: Error response
+    deactivate Routes
+    FE --> Supervisor: Show "Vui lòng đăng nhập lại"
+    deactivate FE
+end
+
+note over FE,Routes
+  Các request bên dưới chỉ thực hiện sau khi supervisor đã xác thực thành công.
+end note
+
+== Supervisor Funnel ==
+FE -> Routes: GET /dashboard/sup-picker/order-processing
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: getOrderProcessing(req,res)
+activate Controller
+Controller -> Repo: listOrderProcessing(supervisorId)
+activate Repo
+Repo -> DB: Aggregate task counts by status for supervisor
+activate DB
+DB --> Repo: TaskStatusCount[]
+deactivate DB
+Repo --> Controller: TaskStatusCount[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Status chart data
+deactivate Routes
+
+== Supervisor Timeline ==
+FE -> Routes: GET /dashboard/sup-picker/order-prepared
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: getOrderPrepared(req,res)
+activate Controller
+Controller -> Repo: listOrderPrepared(supervisorId)
+activate Repo
+Repo -> DB: Fetch timeline entries\n(orders, preparation_tasks, users, qty summary)
+activate DB
+DB --> Repo: rows[]
+deactivate DB
+Repo --> Controller: PreparationTimelineEntry[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Timeline JSON
+deactivate Routes
+
+FE -> FE: Render supervisor dashboard
+FE --> Supervisor: Display charts & task list
+deactivate FE
+
+== Picker View ==
+Picker -> FE: Open Picker Dashboard
+activate FE
+
+FE -> Routes: GET /dashboard/picker/stats
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: getPickerStats(req,res)
+activate Controller
+Controller -> Repo: listPickerStats(pickerId)
+activate Repo
+Repo -> DB: Aggregate picker task counts grouped by status
+activate DB
+DB --> Repo: TaskStatusCount[]
+deactivate DB
+Repo --> Controller: TaskStatusCount[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Picker status JSON
+deactivate Routes
+
+FE -> Routes: GET /dashboard/picker/order-assigned
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: getOrderAssigned(req,res)
+activate Controller
+Controller -> Repo: listPickerAssignments(pickerId)
+activate Repo
+Repo -> DB: Fetch assignment list with\norders, quantities, supervisor & picker info
+activate DB
+DB --> Repo: assignment rows
+deactivate DB
+Repo --> Controller: PickerAssignment[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Assignment JSON
+deactivate Routes
+
+FE -> FE: Render picker dashboard
+FE --> Picker: Show KPIs & task list
+deactivate FE
+
+@enduml

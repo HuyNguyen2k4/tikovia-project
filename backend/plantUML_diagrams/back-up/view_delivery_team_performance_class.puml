@@ -1,0 +1,76 @@
+@startuml View Delivery Team Performance - Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class DashboardController {
+  + getSupervisorShipperStats(req, res)
+  + getDeliveryRunsProgress(supervisorId)
+  + getShipperAssignedRuns(shipperId)
+}
+
+class GetStatsRequest {
+  supervisorId: number
+  shipperId: number
+}
+
+class GetStatsResponse {
+  success: boolean
+  data: RunData[]
+}
+
+class RunData {
+  runId: number
+  runCode: string
+  totalOrders: number
+  status: string
+  shipperName: string
+}
+
+class Database {
+  query(sql, params)
+}
+
+class "delivery_runs" as TableRuns {
+  id
+  run_code
+  supervisor_id
+  shipper_id
+  status
+}
+
+class "delivery_run_orders" as TableRunOrders {
+  id
+  delivery_run_id
+  order_id
+  delivery_status
+}
+
+class "sales_orders" as TableOrders {
+  id
+  order_no
+  status
+}
+
+class "users" as TableUsers {
+  id
+  full_name
+  role
+}
+
+' Relationships
+DashboardController ..> GetStatsRequest : uses
+DashboardController ..> GetStatsResponse : creates
+DashboardController --> Database : queries via
+
+Database ..> TableRuns : reads from
+Database ..> TableRunOrders : reads from
+Database ..> TableOrders : reads from
+Database ..> TableUsers : reads from
+
+GetStatsResponse --> RunData : contains
+
+note right of DashboardController
+  Not yet implemented
+end note
+
+@enduml

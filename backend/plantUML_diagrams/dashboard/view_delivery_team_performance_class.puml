@@ -1,0 +1,113 @@
+@startuml View Delivery Team Performance - Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class DashboardController {
+  + getSupervisorShipperStats(req, res)
+  + getDeliveryRunsProgress(supervisorId)
+  + getShipperAssignedRuns(shipperId)
+}
+
+class DeliveryStatsResponse {
+  success: boolean
+  data: DeliveryPerformance
+}
+
+class DeliveryPerformance {
+  totalRunsAssigned: number
+  totalRunsInProgress: number
+  totalRunsCompleted: number
+  totalShippers: number
+  totalRunsCancelled: number
+}
+
+class DeliveryRunProgress {
+  status: string
+  count: number
+}
+
+class DeliveryRunDetail {
+  runId: string
+  deliveryNo: string
+  vehicleNo: string
+  shipperName: string
+  totalOrders: number
+  status: string
+  startedAt: string
+  completedAt: string
+  stops: RunOrderDetail[]
+}
+
+class RunOrderDetail {
+  orderId: string
+  orderNo: string
+  customerName: string
+  routeSeq: number
+  codAmount: number
+  deliveryStatus: string
+}
+
+class Database {
+  + query(sql, params?)
+}
+
+class "delivery_runs" as TableRuns {
+  id
+  delivery_no
+  supervisor_id
+  shipper_id
+  vehicle_no
+  status
+  started_at
+  completed_at
+}
+
+class "delivery_run_orders" as TableRunOrders {
+  id
+  run_id
+  order_id
+  route_seq
+  cod_amount
+  status
+  actual_pay
+  evd_url
+  note
+}
+
+class "sales_orders" as TableOrders {
+  id
+  customer_id
+  order_no
+  status
+}
+
+class "customers" as TableCustomers {
+  id
+  name
+  address
+  phone
+}
+
+class "users" as TableUsers {
+  id
+  full_name
+  role
+}
+
+' Relationships
+DashboardController --> Database : query()
+Database ..> TableRuns
+Database ..> TableRunOrders
+Database ..> TableOrders
+Database ..> TableCustomers
+Database ..> TableUsers
+
+DeliveryStatsResponse --> DeliveryPerformance
+DeliveryRunDetail *-- RunOrderDetail
+DeliveryRunDetail ..> TableRuns
+DeliveryRunDetail ..> TableRunOrders
+RunOrderDetail ..> TableOrders
+RunOrderDetail ..> TableCustomers
+DeliveryPerformance ..> TableRuns : aggregated counts
+
+@enduml

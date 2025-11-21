@@ -1,0 +1,42 @@
+@startuml View Preparation Team Performance - Sequence Diagram
+
+actor "Supervisor/Picker" as User
+participant Router
+participant JWT
+participant Controller
+database DB
+
+== Supervisor View Stats ==
+User -> Router: GET /sup-picker/stats
+
+Router -> JWT: verifyAccessToken()
+JWT --> Router: req.user = {id, role}
+
+Router -> Controller: getSupervisorPickerStats(req, res)
+
+Controller -> DB: Query statistics (parallel)\nfiltered by supervisor_id
+note right
+  Count orders assigned,
+  processing, confirmed,
+  cancelled, total pickers
+end note
+DB --> Controller: Statistics data
+
+Controller --> Router: 200 OK\n{data: {...}}
+Router --> User: JSON Response
+
+== Picker View Assigned Orders ==
+User -> Router: GET /picker/order-assigned
+
+Router -> JWT: verifyAccessToken()
+JWT --> Router: req.user = {id, role}
+
+Router -> Controller: getOrderAssigned(pickerId)
+
+Controller -> DB: Query tasks with JOINs\n(orders, items, users)\nfiltered by packer_id
+DB --> Controller: Order list
+
+Controller --> Router: 200 OK\n{data: [...]}
+Router --> User: JSON Response
+
+@enduml

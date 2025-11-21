@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biên nhận</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Bọc biên lai trong 1 div với ID #receipt */
+        /* Kích thước của ảnh sẽ là kích thước của div này */
+        #receipt {
+            width: 450px; /* Chiều rộng của ảnh biên lai */
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 24px;
+            box-sizing: border-box; 
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px dashed #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h2 {
+            margin: 0;
+            color: #333;
+            font-size: 24px;
+        }
+        .header p {
+            margin: 5px 0 0;
+            color: #4CAF50; /* Màu xanh lá cây */
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .amount {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .amount-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #D9534F; /* Màu đỏ */
+            margin: 0;
+        }
+        .details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .details li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .details li:last-child {
+            border-bottom: none;
+        }
+        .details .label {
+            color: #555;
+            font-size: 15px;
+        }
+        .details .value {
+            color: #111;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: right;
+            /* Cho phép xuống dòng nếu nội dung quá dài */
+            word-break: break-word;
+            flex-basis: 60%; 
+        }
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div id="receipt">
+        <div class="header">
+            <h2>GIAO DỊCH THÀNH CÔNG</h2>
+            <p>Xác nhận bởi SePay (Tự động)</p>
+        </div>
+
+        <div class="amount">
+            <h1 class="amount-value"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(transferAmount) %></h1>
+        </div>
+
+        <div class="details">
+            <ul>
+                <li>
+                    <span class="label">Thời gian</span>
+                    <span class="value"><%= new Date(transactionDate).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }) %></span>
+                </li>
+                <li>
+                    <span class="label">Ngân hàng</span>
+                    <span class="value"><%= gateway || 'N/A' %></span>
+                </li>
+                <li>
+                    <span class="label">Nội dung</span>
+                    <span class="value"><%= content || 'N/A' %></span>
+                </li>
+                 <li>
+                    <span class="label">Tài khoản nhận</span>
+                    <span class="value"><%= subAccount || accountNumber %></span>
+                </li>
+                <li>
+                    <span class="label">Mã GD (SePay)</span>
+                    <span class="value"><%= id || 'N/A' %></span>
+                </li>
+                <li>
+                    <span class="label">Mã tham chiếu</span>
+                    <span class="value"><%= referenceCode || 'N/A' %></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Đây là biên nhận được tạo tự động.</p>
+        </div>
+    </div>
+</body>
+</html>

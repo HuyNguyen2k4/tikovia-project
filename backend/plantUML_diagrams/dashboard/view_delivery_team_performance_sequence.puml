@@ -1,0 +1,169 @@
+@startuml
+title 3.3.2 Sequence Diagram for View Delivery Team Performance
+
+actor Supervisor
+actor Shipper
+participant "Dashboard FE" as FE
+participant "DashboardRoutes" as Routes
+participant "TokenMiddleware" as Auth
+participant "DashboardController" as Controller
+participant "DeliveryDashboardRepository" as Repo
+database "PostgreSQL" as DB
+
+note over Supervisor, DB
+  Backend APIs for the delivery dashboard are being implemented;
+  this sequence describes the desired behaviour end to end.
+end note
+
+== Supervisor Loads Dashboard ==
+Supervisor -> FE: Open Delivery Dashboard
+activate FE
+FE -> Routes: GET /dashboard/sup-shipper/stats
+activate Routes
+Routes -> Auth: verifyAccessToken(req,res,next)
+activate Auth
+Auth -> Auth: Verify JWT token
+alt Token valid
+    Auth --> Routes: next()
+    deactivate Auth
+
+    Routes -> Controller: getSupervisorShipperStats(req,res)
+    activate Controller
+    Controller -> Repo: countRunsByStatus(supervisorId),\ncountTotalShippers()
+    activate Repo
+    Repo -> DB: Collect KPI totals (runs per status & total shippers)
+    activate DB
+    DB --> Repo: KPI aggregates
+    deactivate DB
+    Repo --> Controller: DeliveryPerformance
+    deactivate Repo
+    Controller --> Routes: 200 OK {data}
+    deactivate Controller
+    Routes --> FE: KPI JSON
+    deactivate Routes
+else Token invalid
+    Auth --> Routes: res.status(401)
+    deactivate Auth
+    Routes --> FE: Error response
+    deactivate Routes
+    FE --> Supervisor: Show "Phiên đăng nhập hết hạn"
+    deactivate FE
+end
+
+note over FE,Routes
+  Remaining supervisor requests run only after a valid session.
+end note
+
+== Supervisor Views Progress ==
+FE -> Routes: GET /dashboard/sup-shipper/runs-progress
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: getDeliveryRunsProgress(req,res)
+activate Controller
+Controller -> Repo: countRunsByStatus(supervisorId)
+activate Repo
+Repo -> DB: Aggregate delivery runs by status
+activate DB
+DB --> Repo: DeliveryRunProgress[]
+deactivate DB
+Repo --> Controller: DeliveryRunProgress[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Funnel JSON
+deactivate Routes
+
+== Supervisor Views Run List ==
+FE -> Routes: GET /dashboard/sup-shipper/runs
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: getDeliveryRuns(req,res)
+activate Controller
+Controller -> Repo: listRuns(supervisorId)
+activate Repo
+Repo -> DB: Fetch delivery runs with supervisor & shipper info
+activate DB
+DB --> Repo: run rows
+Repo -> DB: Fetch stop list (orders + customers) per run
+DB --> Repo: stop rows
+deactivate DB
+Repo --> Controller: DeliveryRunDetail[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Run manifest JSON
+deactivate Routes
+FE -> FE: Render supervisor delivery dashboard
+FE --> Supervisor: Display KPIs, charts, run table
+deactivate FE
+
+== Shipper Views Assigned Runs ==
+Shipper -> FE: Open Mobile Delivery App
+activate FE
+FE -> Routes: GET /dashboard/shipper/assigned-runs
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth -> Auth: Verify JWT token
+alt Token valid
+    Auth --> Routes: next()
+    deactivate Auth
+
+    Routes -> Controller: getShipperAssignedRuns(req,res)
+    activate Controller
+    Controller -> Repo: listShipperRuns(shipperId)
+    activate Repo
+    Repo -> DB: Fetch assigned/in-progress runs with nested stops
+    activate DB
+    DB --> Repo: DeliveryRunDetail[]
+    deactivate DB
+    Repo --> Controller: DeliveryRunDetail[]
+    deactivate Repo
+    Controller --> Routes: 200 OK {data}
+    deactivate Controller
+    Routes --> FE: Assigned runs JSON
+    deactivate Routes
+else Token invalid
+    Auth --> Routes: 401 Unauthorized
+    deactivate Auth
+    Routes --> FE: Error response
+    deactivate Routes
+    FE --> Shipper: Prompt re-login
+    deactivate FE
+end
+
+note over FE,Routes
+  Proof updates below also require a verified shipper token.
+end note
+
+== Shipper Updates Proof ==
+FE -> Routes: PATCH /dashboard/shipper/runs/{runId}/orders/{orderId}
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: updateRunOrderStatus(req,res)
+activate Controller
+Controller -> Repo: updateRunOrderStatus(runId, orderId, payload)
+activate Repo
+Repo -> DB: Persist new delivery status & proof metadata
+activate DB
+DB --> Repo: updated row
+deactivate DB
+Repo --> Controller: RunOrderSummary
+deactivate Repo
+Controller --> Routes: 200 OK {success:true,data}
+deactivate Controller
+Routes --> FE: Confirmation JSON
+deactivate Routes
+FE --> Shipper: Show toast "Cập nhật thành công"
+deactivate FE
+
+@enduml

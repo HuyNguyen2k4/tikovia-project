@@ -1,0 +1,138 @@
+@startuml View Summary Statistical Report - Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class DashboardController {
+  + getAdminStats(req, res)
+  + countOrdersThisWeek()
+  + getTopSellingProducts()
+  + countOrdersByGroupedStatus()
+  + getOrdersThisWeek()
+}
+
+class SummaryReportPage {
+  adminStats: AdminStatsData
+  weeklyOrderCounts: DailyOrderCount[]
+  topProducts: ProductSales[]
+  groupedStatusCounts: OrderStatusCount[]
+  weeklyOrders: WeeklyOrderDetail[]
+}
+
+class AdminStatsData {
+  totalUsers: number
+  totalOrders: number
+  totalSuppliers: number
+  totalProducts: number
+  totalCustomers: number
+}
+
+class DailyOrderCount {
+  date: string
+  dayName: string
+  count: number
+}
+
+class ProductSales {
+  productId: number
+  productName: string
+  skuCode: string
+  imgUrl: string
+  categoryName: string
+  totalSold: number
+  orderCount: number
+}
+
+class OrderStatusCount {
+  status: string
+  count: number
+}
+
+class WeeklyOrderDetail {
+  orderNo: string
+  createdAt: string
+  status: string
+  customerName: string
+  sellerName: string
+  expectedReceivables: number
+  invoiceTotal: number
+}
+
+class Database {
+  + query(sql, params?)
+}
+
+class "users" as TableUsers {
+  id
+  full_name
+  role
+}
+
+class "sales_orders" as TableOrders {
+  id
+  order_no
+  customer_id
+  seller_id
+  status
+  created_at
+}
+
+class "suppliers" as TableSuppliers {
+  id
+  name
+}
+
+class "products" as TableProducts {
+  id
+  name
+  sku_code
+  category_id
+}
+
+class "customers" as TableCustomers {
+  id
+  name
+}
+
+class "product_categories" as TableCategories {
+  id
+  name
+}
+
+class "sales_order_items" as TableOrderItems {
+  id
+  order_id
+  product_id
+  qty
+}
+
+class "sales_invoices" as TableInvoices {
+  id
+  order_id
+  expected_receivables
+  total
+}
+
+' Relationships
+DashboardController ..> SummaryReportPage : assembles
+SummaryReportPage *-- AdminStatsData
+SummaryReportPage *-- DailyOrderCount
+SummaryReportPage *-- ProductSales
+SummaryReportPage *-- OrderStatusCount
+SummaryReportPage *-- WeeklyOrderDetail
+
+DashboardController --> Database : query()
+Database ..> TableUsers
+Database ..> TableOrders
+Database ..> TableSuppliers
+Database ..> TableProducts
+Database ..> TableCustomers
+Database ..> TableCategories
+Database ..> TableOrderItems
+Database ..> TableInvoices
+
+WeeklyOrderDetail ..> TableCustomers : customer_id
+WeeklyOrderDetail ..> TableUsers : seller_id
+ProductSales ..> TableCategories : FK
+ProductSales ..> TableOrderItems : aggregate qty
+
+@enduml

@@ -1,0 +1,148 @@
+@startuml
+title 3.1.2 Sequence Diagram for View Summary Statistical Report
+
+actor Admin
+participant "Dashboard FE" as FE
+participant "DashboardRoutes" as Routes
+participant "TokenMiddleware" as Auth
+participant "DashboardController" as Controller
+participant "DashboardStatsRepository" as Repo
+database "PostgreSQL" as DB
+
+Admin -> FE: Open Summary Dashboard
+activate FE
+
+== Load KPI Cards ==
+FE -> Routes: GET /dashboard/admin/stats
+activate Routes
+Routes -> Auth: verifyAccessToken(req,res,next)
+activate Auth
+Auth -> Auth: Validate JWT & expiry
+alt Token valid
+    Auth --> Routes: next()
+    deactivate Auth
+
+    Routes -> Controller: getAdminStats(req, res)
+    activate Controller
+    Controller -> Repo: countUsers(), countOrders(),\ncountSuppliers(), countProducts(), countCustomers()
+    activate Repo
+    Repo -> DB: Fetch aggregated counters\n(users, orders, suppliers, products, customers)
+    activate DB
+    DB --> Repo: totals
+    deactivate DB
+    Repo --> Controller: AdminStats
+    deactivate Repo
+    Controller --> Routes: 200 OK {success, data}
+    deactivate Controller
+
+    Routes --> FE: KPI JSON
+    deactivate Routes
+else Token invalid
+    Auth --> Routes: res.status(401)
+    deactivate Auth
+    Routes --> FE: Error response
+    deactivate Routes
+    FE --> Admin: Show "Phiên đăng nhập hết hạn"
+    deactivate FE
+end
+
+note over FE,Routes
+  Các request bên dưới chỉ chạy sau khi phiên đăng nhập hợp lệ.
+end note
+
+== Load Weekly Order Count ==
+FE -> Routes: GET /dashboard/admin/orders-this-week
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: countOrdersThisWeek(req, res)
+activate Controller
+Controller -> Repo: countOrdersThisWeek({start,end})
+activate Repo
+Repo -> DB: Retrieve daily order totals within week range
+activate DB
+DB --> Repo: rows[]
+deactivate DB
+Repo -> Repo: Fill missing weekdays via dayjs
+Repo --> Controller: DailyOrderCount[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Trend JSON
+deactivate Routes
+
+== Load Orders By Status ==
+FE -> Routes: GET /dashboard/admin/orders-by-status
+activate Routes
+Routes -> Auth: verifyAccessToken()
+activate Auth
+Auth --> Routes: next()
+deactivate Auth
+Routes -> Controller: countOrdersByGroupedStatus(req,res)
+activate Controller
+Controller -> Repo: countOrdersByGroupedStatus()
+activate Repo
+Repo -> DB: Retrieve order counts grouped by status
+activate DB
+DB --> Repo: counts per status
+deactivate DB
+Repo -> Repo: Map statuses -> buckets\n(draft, pending, preparing, shipping, completed, cancelled)
+Repo --> Controller: OrderStatusSummary[]
+deactivate Repo
+Controller --> Routes: 200 OK {data}
+deactivate Controller
+Routes --> FE: Status JSON
+deactivate Routes
+
+== Load Top Products & Weekly Orders ==
+par parallel fetches
+    FE -> Routes: GET /dashboard/admin/top-products
+    activate Routes
+    Routes -> Auth: verifyAccessToken()
+    activate Auth
+    Auth --> Routes: next()
+    deactivate Auth
+    Routes -> Controller: getTopSellingProducts(req,res)
+    activate Controller
+    Controller -> Repo: getTopSellingProducts(limit=10)
+    activate Repo
+    Repo -> DB: Fetch top selling products with category info
+    activate DB
+    DB --> Repo: product rows
+    deactivate DB
+    Repo --> Controller: ProductSales[]
+    deactivate Repo
+    Controller --> Routes: 200 OK {data}
+    deactivate Controller
+    Routes --> FE: Top products JSON
+    deactivate Routes
+||
+    FE -> Routes: GET /dashboard/admin/orders-list-this-week
+    activate Routes
+    Routes -> Auth: verifyAccessToken()
+    activate Auth
+    Auth --> Routes: next()
+    deactivate Auth
+    Routes -> Controller: getOrdersThisWeek(req,res)
+    activate Controller
+    Controller -> Repo: getOrdersThisWeek({start,end})
+    activate Repo
+    Repo -> DB: Fetch weekly order details (customer, seller, invoice)
+    activate DB
+    DB --> Repo: order rows
+    deactivate DB
+    Repo --> Controller: WeeklyOrderDetail[]
+    deactivate Repo
+    Controller --> Routes: 200 OK {data}
+    deactivate Controller
+    Routes --> FE: Weekly orders JSON
+    deactivate Routes
+end
+
+FE -> FE: Render charts & tables
+FE --> Admin: Display Summary Statistical Report
+deactivate FE
+
+@enduml

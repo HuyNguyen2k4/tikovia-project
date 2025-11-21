@@ -1,0 +1,73 @@
+@startuml View Summary Statistical Report - Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class DashboardController {
+  + getAdminStats(req, res)
+  + getManagerStats(req, res)
+  + getSupervisorPickerStats(req, res)
+}
+
+class GetStatsRequest {
+  role: string
+  userId: number
+}
+
+class GetStatsResponse {
+  success: boolean
+  data: Statistics
+}
+
+class Statistics {
+  total_users: number
+  total_orders: number
+  total_suppliers: number
+  total_products: number
+  total_customers: number
+}
+
+class Database {
+  query(sql, params)
+}
+
+class "users" as TableUsers {
+  id
+  full_name
+  role
+}
+
+class "sales_orders" as TableOrders {
+  id
+  order_no
+  status
+}
+
+class "suppliers" as TableSuppliers {
+  id
+  name
+}
+
+class "products" as TableProducts {
+  id
+  name
+}
+
+class "customers" as TableCustomers {
+  id
+  name
+}
+
+' Relationships
+DashboardController ..> GetStatsRequest : uses
+DashboardController ..> GetStatsResponse : creates
+DashboardController --> Database : queries via
+
+Database ..> TableUsers : reads from
+Database ..> TableOrders : reads from
+Database ..> TableSuppliers : reads from
+Database ..> TableProducts : reads from
+Database ..> TableCustomers : reads from
+
+GetStatsResponse --> Statistics : contains
+
+@enduml

@@ -1,0 +1,29 @@
+{
+    "printWidth": 100,
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
+    "importOrder": [
+        "^(node:)?(assert|buffer|child_process|cluster|crypto|dgram|dns|fs|http2?|https|net|os|path|perf_hooks|process|querystring|readline|stream|string_decoder|timers|tls|tty|url|util|v8|vm|zlib)(/.*)?$",
+        "^dotenv/config$",
+        "<THIRD_PARTY_MODULES>",
+        "^express$",
+        "^@config/(.*)$",
+        "^@db/(.*)$",
+        "^@models/(.*)$",
+        "^@services/(.*)$",
+        "^@controllers/(.*)$",
+        "^@middlewares/(.*)$",
+        "^@routes/(.*)$",
+        "^@utils/(.*)$",
+        "^@types/(.*)$",
+        "^@src/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+}
